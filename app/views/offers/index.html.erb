@@ -7,6 +7,7 @@
   <li> <%= offer.price%> </li>
   <li> <%= offer.category%> </li>
   <li> <%= offer.content%> </li>
+  <li> <%= cl_image_tag offer.photo.key, height: 400, width: 400, crop: :fit %></li>
 <% end %>
 
 <%= link_to "Add a new offer", new_offer_path, class: "btn btn-primary"  %>
