@@ -11,8 +11,11 @@
   </head>
 
   <body>
-    <%= render "shared/navbar" %>
-    <%= yield %>
+    <div class="body-height">
+      <%= render "shared/navbar" %>
+      <%= yield %>
+    </div>
     <%= render "shared/footer" %>
+    
   </body>
 </html>
