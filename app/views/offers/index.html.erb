@@ -1,22 +1,18 @@
+<%= render 'shared/banner' %>
 <div class = "container">
-<h1 class = "text-center" >Offers#index</h1>
-<p class = "text-center">Find me in app/views/offers/index.html.erb</p>
-
-
+  <h1 class = "text-center mt-3" > Les sosies disponibles</h1>
   <div id = "grid">
     <% @offers.each do |offer| %>
       <div class = "card rounded-5 m-3 " style = "width: 18rem;">
-        <p class = "pic"> <%= cl_image_tag offer.photo.key %></p>
+        <%= cl_image_tag offer.photo.key, crop: :fit %>
         <div class = "card-info">
         <p> <%= offer.celebrity_name%> </p>
-        <p> <%= offer.price%> </p>
+        <p> <%= offer.price%> €</p>
         <p> <%= offer.category%> </p>
         <p> <%= offer.content%> </p>
-      <%= link_to "Go to details", offer_path(offer), class: "white"  %>
-        </div>
+        <%= link_to "Voir", offer_path(offer), class: "white"  %>
+      </div>
     </div>
-
    <% end %>
-     <%= link_to "Add a new offer", new_offer_path, class: "btn btn-primary"  %>
   </div>
 </div>

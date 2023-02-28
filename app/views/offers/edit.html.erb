@@ -1,10 +1,13 @@
-<h1>Offers#edit</h1>
 <div class="container">
+  <h1 class= "my-5">Modifier votre offre</h1>
   <%= simple_form_for @offer do |f| %>
   <%= f.input :celebrity_name %>
+  <%= f.input :short_desc %>
   <%= f.input :price %>
   <%= f.select :category, Offer::CATEGORIES %>
+  <%= f.input :content %>
   <%= f.input :photo, as: :file %>
   <%= f.button :submit, class: "btn btn-primary" %>
   <% end %>
+  <div class= "mb-5"></div>
 </div>
