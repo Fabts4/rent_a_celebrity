@@ -1,9 +1,46 @@
-<h1>Offers#show</h1>
-<p>Find me in app/views/offers/show.html.erb</p>
+<div class = "container">
 
- <li> <%= @offer.celebrity_name %> </li>
-  <li> <%= @offer.price%> </li>
-  <li> <%= @offer.category%> </li>
-  <li> <%= @offer.content%> </li>
+  <h1>Offers#show</h1>
+  <p>Find me in app/views/offers/show.html.erb</p>
+
+  <div class = "d-flex align-items-end justify-content-between">
+    <div class = "hello">
+    </div>
+    <div>
+      <div><p>stars</p></div>
+      <div class = "card-reservation mt-4">
+        <div class = "d-flex justify-content-around">
+          <div>
+            <p> <%= @offer.price%> </p>
+          </div>
+
+          <div>
+            <p class = "available-tag">Disponible</p>
+          </div>
+        </div>
+        <div class="element-card">
+            <p>75011 Paris</p>
+            <a id= "book" class = "btn btn-primary"> Reserver</a>
+        </div>
+      </div>
 
 
+    </div>
+
+
+  </div>
+
+
+  <h1> <%= @offer.celebrity_name %> </h1>
+
+  <hr>
+      <div>
+        <p> <%= @offer.category%> </p>
+        <p> <%= @offer.content%> </p>
+      </div>
+
+
+
+
+
+</div>
