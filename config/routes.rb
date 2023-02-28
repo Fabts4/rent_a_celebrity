@@ -2,7 +2,9 @@ Rails.application.routes.draw do
   devise_for :users
   root to: "offers#index"
 
-  resources :offers, only: [:new, :create, :show, :index] do
+  get '/dashboard', to: "pages#dashboard"
+
+  resources :offers, only: [:new, :create, :show, :index, :edit, :update] do
     resources :bookings, only: [:new, :create]
     resources :reviews, only: [:new, :create, :index]
   end
