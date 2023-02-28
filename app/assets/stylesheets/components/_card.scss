@@ -1,0 +1,13 @@
+#grid {
+display: grid;
+grid-template-columns: repeat(3, 1fr);
+}
+
+#grid img {
+  height: 200px;
+  width: 100%;
+}
+
+.card-info {
+  padding: 16px;
+}
