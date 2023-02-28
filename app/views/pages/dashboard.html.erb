@@ -1,0 +1,39 @@
+<div class="container">
+  <h1>Mon Dashboard</h1>
+
+  <h2 class="mt-5">Mes réservations :</h2>
+  <% @user_bookings.each do |booking| %>
+    <div class="card-product my-3 mx-5">
+      <%= cl_image_tag booking.offer.photo.key, height: 400, width: 400, crop: :fit %>
+      <div class= "card-product-flex">
+        <div class="card-product-infos ">
+          <h2> <%= booking.offer.celebrity_name  %> </h2>
+          <p>Date : <strong><%= booking.event_date %></strong></p>
+          <p>Event Price : <strong><%= booking.offer.price %> €</strong></p>
+        </div>
+        <div class="pe-5">
+          <button type="button" class="btn btn-secondary" disabled><%= booking.status %></button>
+        </div>
+      </div>
+    </div>
+  <% end %>
+
+  <h2 class="mt-5">Mes prestations :</h2>
+  <% @user_offers.each do |offer| %>
+    <div class="card-product my-3 mx-5">
+      <%= cl_image_tag offer.photo.key, height: 400, width: 400, crop: :fit %>
+      <div class= "card-product-flex">
+        <div class="card-product-infos ">
+          <h2> <%= offer.celebrity_name  %> </h2>
+          <p>Event Price : <strong><%= offer.price %> €</strong></p>
+          <p> <%= offer.content %></p>
+        </div>
+        <div class="pe-5">
+          <%= link_to "edit", edit_offer_path(offer), class: "btn btn-secondary" %>
+        </div>
+      </div>
+    </div>
+  <% end %>
+
+
+</div>
