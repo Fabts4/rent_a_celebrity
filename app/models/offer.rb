@@ -1,6 +1,7 @@
 class Offer < ApplicationRecord
   belongs_to :user
   has_many :bookings
+  has_many :reviews
   has_one_attached :photo
 
   CATEGORIES = %w[Singer Actor Politician Sportsman Influencer].freeze
