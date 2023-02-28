@@ -1,0 +1,34 @@
+.hello {
+background-color: red;
+width: 400px;
+height: 400px;
+}
+
+.card-reservation {
+border: solid 1px black;
+border-radius: 16px;
+width: 200px;
+height: 250px;
+}
+
+.available-tag{
+  background-color: green;
+  border-radius: 16px;
+  color: white;
+  font-weight: 700;
+  text-align: center;
+  padding: 2px;
+}
+
+#book{
+ justify-content: center;
+
+}
+.element-card p {
+  text-align: center;
+}
+
+.element-card a {
+  display: block;
+  justify-content: center;
+}

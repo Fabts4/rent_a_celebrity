@@ -6,6 +6,7 @@ Rails.application.routes.draw do
 
   resources :offers, only: [:new, :create, :show, :index, :edit, :update] do
     resources :bookings, only: [:new, :create]
+    resources :reviews, only: [:new, :create, :index]
   end
   resources :bookings, only: [:index, :show]
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
