@@ -6,4 +6,4 @@
   <li> <%= @offer.category%> </li>
   <li> <%= @offer.content%> </li>
 
-
+<%= link_to 'Make your reservation', new_offer_booking_path(@offer), class: 'btn btn-primary' %>
