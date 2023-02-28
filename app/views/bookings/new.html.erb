@@ -1,0 +1,5 @@
+<%= simple_form_for [@offer, @booking] do |f| %>
+  <%= f.input :event_date %>
+  <%= f.input :comment %>
+  <%= f.submit "Add a new booking", class: "btn btn-primary" %>
+<% end %>
