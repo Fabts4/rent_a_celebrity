@@ -1,6 +1,5 @@
-<h1>New review</h1>
-<%= simple_form_for [@offer, @review], namespace: 'review form' do |f| %>
-  <%= f.input :comment %>
-  <%= f.input :rating %>
-  <%= f.submit "Submit review", class: "btn btn-primary" %>
-<% end %>
+  <%= simple_form_for [@offer, @review], namespace: 'review form' do |f| %>
+    <%= f.input :comment %>
+    <%= f.input :rating, collection: (1..5).to_a, label: "Rate your experience", input_html: {data: {controller: "star-rating"}} %>
+    <%= f.submit :submit, class: "btn btn-success" %>
+  <% end %>

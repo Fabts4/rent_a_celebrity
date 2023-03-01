@@ -5,16 +5,17 @@ class ReviewsController < ApplicationController
   end
 
   def new
-    @review = Review.new
+    # @review = Review.new
   end
 
   def create
     @review = Review.new(review_params)
     @review.offer = @offer
+    @booking = Booking.new
     if @review.save
       redirect_to offer_path(@offer)
     else
-      render :new, status: :unprocessable_entity
+      render 'offers/show', status: :unprocessable_entity
     end
   end
 
