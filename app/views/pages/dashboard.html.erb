@@ -2,7 +2,7 @@
   <h1>Mon Dashboard</h1>
 
   <h2 class="mt-5">Mes réservations :</h2>
-  <% @user_bookings.each do |booking| %>
+  <% @user_bookings.sort.reverse!.each do |booking| %>
     <div class="card-product my-3 mx-5">
       <%= cl_image_tag booking.offer.photo.key, height: 400, width: 400, crop: :fit %>
       <div class= "card-product-flex">
@@ -26,7 +26,7 @@
   <% end %>
 
   <h2 class="mt-5">Mes prestations :</h2>
-  <% @user_offers.each do |offer| %>
+  <% @user_offers.sort.reverse!.each do |offer| %>
     <div class="card-product my-3 mx-4">
       <%= cl_image_tag offer.photo.key, height: 400, width: 400, crop: :fit %>
       <div class= "card-product-flex">
@@ -40,7 +40,7 @@
         </div>
       </div>
     </div>
-    <% offer.bookings.each do |booking| %>
+    <% offer.bookings.sort.reverse!.each do |booking| %>
       <div class="card-product my-1 mx-5">
       <div class= "card-product-flex">
         <div class="card-product-infos">
