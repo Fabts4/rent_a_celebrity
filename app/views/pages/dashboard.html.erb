@@ -2,25 +2,32 @@
   <h1>Mon Dashboard</h1>
 
   <h2 class="mt-5">Mes réservations :</h2>
-  <% @user_bookings.each do |booking| %>
+  <% @user_bookings.sort.reverse!.each do |booking| %>
     <div class="card-product my-3 mx-5">
       <%= cl_image_tag booking.offer.photo.key, height: 400, width: 400, crop: :fit %>
       <div class= "card-product-flex">
         <div class="card-product-infos ">
           <h2> <%= booking.offer.celebrity_name  %> </h2>
           <p>Date : <strong><%= booking.event_date %></strong></p>
-          <p>Event Price : <strong><%= booking.offer.price %> €</strong></p>
+          <p>Prix : <strong><%= booking.offer.price %> €</strong></p>
+          <p>Commentaires : <strong><%= booking.comment %></strong></p>
         </div>
         <div class="pe-5">
-          <button type="button" class="btn btn-secondary" disabled><%= booking.status %></button>
+          <% if booking.status == "Pending" %>
+            <button type="button" class="btn btn-secondary" disabled><%= booking.status %></button>
+          <% elsif booking.status == "Accepted"  %>
+            <button type="button" class="btn btn-success" disabled><%= booking.status %></button>
+          <% elsif booking.status == "Rejected"  %>
+            <button type="button" class="btn btn-danger" disabled><%= booking.status %></button>
+          <% end %>
         </div>
       </div>
     </div>
   <% end %>
 
   <h2 class="mt-5">Mes prestations :</h2>
-  <% @user_offers.each do |offer| %>
-    <div class="card-product my-3 mx-5">
+  <% @user_offers.sort.reverse!.each do |offer| %>
+    <div class="card-product my-3 mx-4">
       <%= cl_image_tag offer.photo.key, height: 400, width: 400, crop: :fit %>
       <div class= "card-product-flex">
         <div class="card-product-infos ">
@@ -33,7 +40,31 @@
         </div>
       </div>
     </div>
+    <% offer.bookings.sort.reverse!.each do |booking| %>
+      <div class="card-product my-1 mx-5">
+      <div class= "card-product-flex">
+        <div class="card-product-infos">
+          <h2> Contrat le <%= booking.event_date  %> </h2>
+          <p>Client : <strong><%= booking.user.first_name %> <%= booking.user.last_name %> </strong></p>
+          <p> Adresse : <%= booking.user.address %></p>
+
+        </div>
+        <div class="card-product-infos">
+          <p> Email : <%= booking.user.email %></p>
+          <p> Commentaires : <%= booking.comment %></p>
+        </div>
+        <div class="pe-5">
+          <% if booking.status == "Pending"%>
+            <%= link_to "Accepter", booking_path(booking, new_status: "Accepted"), data: {turbo_method: :patch}, class: "btn btn-success" %>
+            <%= link_to "Refuser", booking_path(booking, new_status: "Rejected"), data: {turbo_method: :patch}, class: "btn btn-danger" %>
+          <% elsif booking.status == "Accepted" %>
+            <button type="button" class="btn btn-success" disabled><%= booking.status %></button>
+          <% elsif booking.status == "Rejected" %>
+            <button type="button" class="btn btn-danger" disabled><%= booking.status %></button>
+          <% end %>
+        </div>
+      </div>
+    </div>
+    <% end %>
   <% end %>
-
-
 </div>
