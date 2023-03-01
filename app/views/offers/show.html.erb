@@ -19,7 +19,7 @@
 
         </div>
         <div class="container mb-5">
-          <%= simple_form_for [@offer, @booking], data: { controller: 'flatpickr' } do |f| %>
+          <%= simple_form_for [@offer, @booking], namespace: 'booking form', data: { controller: 'flatpickr' } do |f| %>
             <%= f.input :event_date, as: :string, input_html: { data: { flatpickr_target: "eventDate" } }%>
             <%= f.input :comment %>
             <%= f.submit "Réserver", class: "btn btn-primary" %>
@@ -41,4 +41,6 @@
         <p> <%= @offer.category%> </p>
         <p> <%= @offer.content%> </p>
       </div>
+
+      <%= link_to "add review", new_offer_review_path(@offer) %>
 </div>
