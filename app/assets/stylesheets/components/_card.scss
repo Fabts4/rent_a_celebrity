@@ -17,3 +17,9 @@ grid-template-columns: repeat(3, 1fr);
   font-size: 22px;
 }
 
+.card img {
+  width: 100%;
+  height: 400px;
+  object-fit: cover;
+  
+}
