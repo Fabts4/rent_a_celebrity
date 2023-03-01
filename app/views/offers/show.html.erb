@@ -16,7 +16,14 @@
         </div>
         <div class="element-card">
             <p>75011 Paris</p>
-            <%= link_to 'Réserver', new_offer_booking_path(@offer), class: 'btn btn-primary' %>
+
+        </div>
+        <div class="container mb-5">
+          <%= simple_form_for [@offer, @booking], data: { controller: 'flatpickr' } do |f| %>
+            <%= f.input :event_date, as: :string, input_html: { data: { flatpickr_target: "eventDate" } }%>
+            <%= f.input :comment %>
+            <%= f.submit "Réserver", class: "btn btn-primary" %>
+          <% end %>
         </div>
       </div>
 
@@ -34,9 +41,4 @@
         <p> <%= @offer.category%> </p>
         <p> <%= @offer.content%> </p>
       </div>
-
-
-
-
-
 </div>

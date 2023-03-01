@@ -1,7 +1,0 @@
-<div class="container mb-5">
-  <%= simple_form_for [@offer, @booking], data: { controller: 'flatpickr' } do |f| %>
-    <%= f.input :event_date, as: :string, input_html: { data: { flatpickr_target: "eventDate" } }%>
-    <%= f.input :comment %>
-    <%= f.submit "Add a new booking", class: "btn btn-primary" %>
-  <% end %>
-</div>
