@@ -12,6 +12,7 @@ class ReviewsController < ApplicationController
     @review = Review.new(review_params)
     @review.offer = @offer
     @booking = Booking.new
+    @reviews = @offer.reviews
     if @review.save
       redirect_to offer_path(@offer)
     else

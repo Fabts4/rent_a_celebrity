@@ -1,7 +1,6 @@
 require "open-uri"
 Offer.destroy_all
 User.destroy_all
-Booking.destroy_all
 
 sarko_photo = URI.open("https://www.masculin.com/wp-content/uploads/sites/2/article/9289/sosie-de-merde-sarko-2.jpg")
 polna_photo = URI.open("http://loznareff.fr/images/loznareff-sosie-michel-polnareff-vac.jpg")

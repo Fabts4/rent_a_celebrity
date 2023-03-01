@@ -10,6 +10,7 @@ gem "rails", "~> 7.0.4", ">= 7.0.4.2"
 gem "sprockets-rails"
 
 gem "cloudinary"
+gem "geocoder"
 
 # Use postgresql as the database for Active Record
 gem "pg", "~> 1.1"
