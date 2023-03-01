@@ -7,9 +7,9 @@
         <%= cl_image_tag offer.photo.key, crop: :fit %>
         <div class = "card-info">
         <p class="celebrity"> <%= offer.celebrity_name%> </p>
-        <p> <%= offer.price%> €</p>
+        <p> <%= offer.short_desc %> </p>
         <p> <%= offer.category%> </p>
-        <p> <%= offer.content%> </p>
+        <p> <%= offer.price%> €</p>
         <%= link_to "Voir", offer_path(offer), class: "white"  %>
       </div>
     </div>
