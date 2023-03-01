@@ -1,28 +1,53 @@
 .card-reservation {
-border: solid 1px black;
 border-radius: 16px;
 width: 400px;
 height: 400px;
+box-shadow: 5px 5px 15px 5px rgba(0,0,0,0.1);
 }
 
 .available-tag{
-  background-color: green;
-  border-radius: 16px;
+  background-color: rgb(13, 147, 13);
+  border-radius: 6px;
+  box-shadow: 5px 5px 15px 5px rgba(0,0,0,0.1);
   color: white;
   font-weight: 700;
   text-align: center;
   padding: 2px;
+  width: 130px;
+  height: 28px;
+  margin: 20px 10px;
 }
+
 
 #book{
  justify-content: center;
 
 }
-.element-card p {
-  text-align: center;
+
+.element-card {
+margin: 20px 10px;
 }
 
-.element-card a {
-  display: block;
-  justify-content: center;
+.price-card {
+  margin: 20px 10px;
+}
+
+.img-show {
+  border-radius: 6px;
+  margin-top: 5px;
+  box-shadow: 5px 5px 15px 5px rgba(0,0,0,0.1);
+}
+
+.reserv-btn {
+  width: 100%;
+  margin-bottom: -64px;
+  height: 50px;
+  background-color: #A9A9A9;
+  color: white;
+}
+
+.reserv-btn:hover {
+  background-color: #696969;
+  font-weight: bold;
+  color: white;
 }
