@@ -1,7 +1,7 @@
 <%= render 'shared/banner' %>
 <div class = "container">
   <h1 class = "text-center mt-3" > Les sosies disponibles</h1>
-  <div id = "grid">
+<div class="row row-cols-1 row-cols-md-3 g-4" >
     <% @offers.each do |offer| %>
       <div class = "card rounded-5 m-3 " style = "width: 18rem;">
         <%= cl_image_tag offer.photo.key, crop: :fit %>
@@ -11,8 +11,10 @@
         <p> <%= offer.category%> </p>
         <p> <%= offer.price%> €</p>
         <%= link_to "Voir", offer_path(offer), class: "white"  %>
+
       </div>
-    </div>
-   <% end %>
+    <% end %>
   </div>
 </div>
+
+
