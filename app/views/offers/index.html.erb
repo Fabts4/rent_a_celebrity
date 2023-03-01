@@ -1,7 +1,7 @@
 <%= render 'shared/banner' %>
 <div class = "container">
   <h1 class = "text-center mt-3" > Les sosies disponibles</h1>
-<div class="row row-cols-1 row-cols-md-3 g-4">
+<div class="row row-cols-1 row-cols-md-3 g-4" >
     <% @offers.each do |offer| %>
       <div class="col">
         <div class="card h-100" style="width: 18rem;">
@@ -10,7 +10,7 @@
             <p class="celebrity"> <%= offer.celebrity_name%> </p>
             <p> <%= offer.price%> €</p>
             <p> <%= offer.category%> </p>
-           <p> <%= offer.content%> </p>
+            <p> <%= offer.content%> </p>
           </div>
            <%= link_to "Voir", offer_path(offer), class: "white"  %>
         </div>
