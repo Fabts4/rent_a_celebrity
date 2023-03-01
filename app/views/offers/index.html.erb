@@ -6,7 +6,7 @@
       <div class = "card rounded-5 m-3 " style = "width: 18rem;">
         <%= cl_image_tag offer.photo.key, crop: :fit %>
         <div class = "card-info">
-        <p> <%= offer.celebrity_name%> </p>
+        <p class="celebrity"> <%= offer.celebrity_name%> </p>
         <p> <%= offer.price%> €</p>
         <p> <%= offer.category%> </p>
         <p> <%= offer.content%> </p>
