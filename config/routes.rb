@@ -8,7 +8,8 @@ Rails.application.routes.draw do
     resources :bookings, only: [:new, :create]
     resources :reviews, only: [:new, :create, :index]
   end
-  resources :bookings, only: [:index, :show]
+  resources :bookings, only: [:index, :show, :update]
+
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Defines the root path route ("/")

@@ -2,7 +2,7 @@ class BookingsController < ApplicationController
   before_action :set_offer, only: %i[new create]
 
   def new
-    @offer = Offer.find(params[:offer_id])
+    # @offer = Offer.find(params[:offer_id])
   end
 
   def create
@@ -10,14 +10,21 @@ class BookingsController < ApplicationController
     @booking.user = current_user
     @booking.offer = @offer
     if @booking.save
-      redirect_to offer_path(@offer)
+      redirect_to '/dashboard'
     else
-      render :new, status: :unprocessable_entity
+      render 'offers/show', status: :unprocessable_entity
     end
   end
 
   def show
   end
+
+  def update
+    @booking = Booking.find(params[:id])
+    @booking.update(status: params[:new_status])
+    redirect_to '/dashboard'
+  end
+
 
   private
 
