@@ -22,6 +22,13 @@ class OffersController < ApplicationController
 
   def index
     @offers = Offer.all
+    @users = User.all
+    @markers = @users.geocoded.map do |user|
+      {
+        lat: user.latitude,
+        lng: user.longitude
+      }
+    end
   end
 
   def edit

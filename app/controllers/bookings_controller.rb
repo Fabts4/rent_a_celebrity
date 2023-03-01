@@ -11,6 +11,7 @@ class BookingsController < ApplicationController
     @booking.user = current_user
     @booking.offer = @offer
     @review = Review.new()
+    @reviews = @offer.reviews
     if @booking.save
       redirect_to '/dashboard'
     else
