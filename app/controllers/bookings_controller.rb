@@ -6,6 +6,7 @@ class BookingsController < ApplicationController
   end
 
   def create
+    @offer = Offer.find(params[:offer_id])
     @booking = Booking.new(booking_params)
     @booking.user = current_user
     @booking.offer = @offer

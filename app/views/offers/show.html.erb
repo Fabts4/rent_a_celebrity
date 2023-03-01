@@ -21,7 +21,7 @@
           </div>
         </div>
         <div class="container mb-5">
-          <%= simple_form_for [@offer, @booking], data: { controller: 'flatpickr' } do |f| %>
+          <%= simple_form_for [@offer, @booking], namespace: 'booking form', data: { controller: 'flatpickr' } do |f| %>
             <%= f.input :event_date, as: :string, input_html: { data: { flatpickr_target: "eventDate" } }%>
             <%= f.input :comment, placeholder: "Renseigner ici le lieu, des détails sur la prestation, ainsi que d'autres informations utiles..." %>
             <%= f.submit "Réserver", class: "btn reserv-btn" %>

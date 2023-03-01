@@ -1,6 +1,7 @@
 class ReviewsController < ApplicationController
+  before_action :set_offer, only: %i[new create]
   def index
-    @reviews = Review.all
+
   end
 
   def new
@@ -8,7 +9,7 @@ class ReviewsController < ApplicationController
   end
 
   def create
-    @review = Review.find(review_params)
+    @review = Review.new(review_params)
     @review.offer = @offer
     if @review.save
       redirect_to offer_path(@offer)
@@ -17,4 +18,13 @@ class ReviewsController < ApplicationController
     end
   end
 
+  private
+
+  def set_offer
+    @offer = Offer.find(params[:offer_id])
+  end
+
+  def review_params
+    params.require(:review).permit(:comment, :rating)
+  end
 end
