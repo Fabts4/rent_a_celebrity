@@ -8,6 +8,7 @@ class OffersController < ApplicationController
     @booking = Booking.new
     @review = Review.new
     @reviews = @offer.reviews
+    @markers = [{ lat: @offer.user.latitude, lng: @offer.user.longitude }]
   end
 
   def create
@@ -58,7 +59,6 @@ class OffersController < ApplicationController
       render :edit, status: :unprocessable_entity
     end
   end
-
 
   private
 

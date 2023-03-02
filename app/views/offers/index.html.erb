@@ -47,16 +47,18 @@
 
   <div class="row row-cols-1 row-cols-md-3 g-4" >
     <% @offers.each do |offer| %>
-      <div class="col <%= offer.category%>">
-        <div class="card h-100" style="width: 18rem;">
-          <%= cl_image_tag offer.photo.key,width: 400,height: 400, crop: :fit %>
-          <div class="card-body">
-            <p class="celebrity"> <%= offer.celebrity_name%> </p>
-            <p> <%= offer.short_desc%> </p>
-            <p> <%= offer.category%> </p>
-            <p> <%= offer.price%> €</p>
+      <div class="col">
+        <div class="card" style="width: 23rem;">
+          <div class="card-info">
+            <div class="d-flex justify-content-center mb-3">
+              <%= cl_image_tag offer.photo.key, width: 200, height: 200, gravity: :face, crop: :thumb, class:"rounded" %>
+            </div>
+            <p class="celebrity mb-1"> <%= offer.celebrity_name %> </p>
+            <p class="text-secondary"><i class="fa-solid fa-user-tie"></i> <%= offer.category%> </p>
+            <p><%= offer.short_desc %></p>
+            <p class="price"> <%= offer.price %> €</p>
+            <%= link_to "Voir", offer_path(offer), class: "link card-footer" %>
           </div>
-           <%= link_to "Voir", offer_path(offer), class: "white"  %>
         </div>
       </div>
     <% end %>
