@@ -21,7 +21,22 @@ class OffersController < ApplicationController
   end
 
   def index
-    @offers = Offer.all
+    if params[:query].present? || params[:category].present?
+      if params[:query].present?
+        @offers = Offer.global_search(params[:query])
+      elsif params[:category].present?
+        @offers = Offer.global_search(params[:category])
+      end
+    else
+      @offers = Offer.all
+    end
+
+    # if params[:category].present?
+    #   @offers = Offer.global_search(params[:category])
+    # else
+    #   @offers = Offer.all
+    # end
+
     @users = User.all
     @markers = @users.geocoded.map do |user|
       {
