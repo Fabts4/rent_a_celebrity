@@ -1,6 +1,6 @@
 <div class = "container">
   <div class = "class-top d-flex justify-content-between">
-    <%= cl_image_tag @offer.photo.key, height: 400, width: 400, crop: :fill, class: " img-show" %>
+    <%= cl_image_tag @offer.photo.key, height: 400, width: 400, crop: :fit, class: " img-show" %>
     <div class="map"style="width: 860px; height: 400px;"
       data-controller="map"
       data-map-markers-value="<%= @markers.to_json %>"
@@ -36,7 +36,7 @@
     </div>
 
 </div>
-    
+
 <div class = "container">
 
         <div class="flexbox-description d-flex justify-content-center">
@@ -66,5 +66,4 @@
     </div>
   </div>
 </div>
-
 
