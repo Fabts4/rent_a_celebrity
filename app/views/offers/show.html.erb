@@ -10,7 +10,16 @@
   <div class = "flexbox-description d-flex justify-content-between">
       <div class = "description-offer">
           <h1 class = "mt-5"> <%= @offer.celebrity_name %> </h1>
-          <p> <%= @offer.short_desc %>, <%= @offer.category%> </p>
+          <p> <%= @offer.short_desc %></p>
+          <% if @offer.category == "Cinema"  %>
+              <p class="text-secondary"><i class="fa-solid fa-film"></i> <%= @offer.category%> </p>
+            <% elsif @offer.category == "Sport"  %>
+              <p class="text-secondary"><i class="fa-solid fa-baseball-bat-ball"></i> <%= @offer.category%> </p>
+            <% elsif @offer.category == "Musique"  %>
+              <p class="text-secondary"><i class="fa-solid fa-music"></i> <%= @offer.category%> </p>
+            <% elsif @offer.category == "Politique"  %>
+              <p class="text-secondary"><i class="fa-solid fa-landmark"></i> <%= @offer.category%> </p>
+            <% end %>
           <p> <%= @offer.content%></p>
       </div>
     <div class = "card-reservation my-5">
@@ -66,4 +75,3 @@
     </div>
   </div>
 </div>
-
