@@ -52,21 +52,22 @@
 
 
   <div class="row row-cols-1 row-cols-md-3 g-4" >
-    <% @offers.each do |offer| %>
-      <div class="col">
-        <div class="card" style="width: 23rem;">
-          <div class="card-info">
-            <div class="d-flex justify-content-center mb-3">
-              <%= cl_image_tag offer.photo.key, width: 200, height: 200, gravity: :face, crop: :thumb, class:"rounded" %>
+      <% @offers.each do |offer| %>
+        <%= link_to offer_path(offer), class: "card-index" do %>
+        <div class="col">
+          <div class="card" style="width: 23rem;">
+            <div class="card-info">
+              <div class="d-flex justify-content-center mb-3">
+                <%= cl_image_tag offer.photo.key, width: 200, height: 200, gravity: :face, crop: :thumb, class:"rounded" %>
+              </div>
+              <p class="celebrity mb-1"> <%= offer.celebrity_name %> </p>
+              <p class="text-secondary"><i class="fa-solid fa-user-tie"></i> <%= offer.category%> </p>
+              <p><%= offer.short_desc %></p>
+              <p class="price"> <%= offer.price %> €</p>
             </div>
-            <p class="celebrity mb-1"> <%= offer.celebrity_name %> </p>
-            <p class="text-secondary"><i class="fa-solid fa-user-tie"></i> <%= offer.category%> </p>
-            <p><%= offer.short_desc %></p>
-            <p class="price"> <%= offer.price %> €</p>
-            <%= link_to "Voir", offer_path(offer), class: "link card-footer" %>
           </div>
         </div>
-      </div>
+      <% end %>
     <% end %>
   </div>
 </div>
