@@ -53,6 +53,13 @@
             <div class="d-flex justify-content-center mb-3">
               <%= cl_image_tag offer.photo.key, width: 200, height: 200, gravity: :face, crop: :thumb, class:"rounded" %>
             </div>
+            <% ratings = [] %>
+            <% offer.reviews.each {|review| ratings << review.rating} %>
+            <% if ratings.empty? %>
+            <p><i class="fa-solid fa-star" style="color: #FEDE01"></i> - </p>
+            <% else %>
+            <p><i class="fa-solid fa-star" style="color: #FEDE01"></i><%= ratings.sum.fdiv(ratings.size).round(1) %></p>
+            <% end %>
             <p class="celebrity mb-1"> <%= offer.celebrity_name %> </p>
             <% if offer.category == "Cinema"  %>
               <p class="text-secondary"><i class="fa-solid fa-film"></i> <%= offer.category%> </p>

@@ -39,13 +39,6 @@ class OffersController < ApplicationController
     else
       @offers = Offer.all
     end
-
-    # if params[:category].present?
-    #   @offers = Offer.global_search(params[:category])
-    # else
-    #   @offers = Offer.all
-    # end
-
     @users = User.all
 
   end
