@@ -1,7 +1,51 @@
 <%= render 'shared/banner' %>
-<div class = "container">
-  <h1 class = "text-center mt-3" > Les sosies disponibles</h1>
-<div class="row row-cols-1 row-cols-md-3 g-4" >
+
+  <%= form_with url: offers_path, method: :get, class: "d-flex offset-md-4 col-4" do %>
+    <%= text_field_tag :query,
+      params[:query],
+      class: "form-control",
+      placeholder: "Cherche ta célébrité preferée !"
+    %>
+    <%= submit_tag "Search", class: "btn btn-secondary" %>
+  <% end %>
+
+<div class = "container offset-md-1 ">
+
+  <div class="row">
+
+    <div class="col" style="display: flex; align-items: center; justify-content: center">
+      <%= link_to offers_path(category: "Cinema") do %>
+      <i class="fa-solid fa-film fa-2x" style= "color: #5C636A"></i>
+      <% end %>
+    </div>
+
+    <div class="col" style="display: flex; align-items: center; justify-content: center">
+      <%= link_to offers_path(category: "Sport") do %>
+      <i class="fa-solid fa-baseball-bat-ball fa-2x" style= "color: #5C636A"></i>
+      <% end %>
+    </div>
+
+    <div class="col" style="display: flex; align-items: center; justify-content: center">
+      <%= link_to offers_path(category: "Musique") do %>
+      <i class="fa-solid fa-music fa-2x" style= "color: #5C636A"></i>
+      <% end %>
+    </div>
+
+    <div class="col" style="display: flex; align-items: center; justify-content: center">
+        <%= link_to offers_path(category: "Politique") do %>
+      <i class="fa-solid fa-landmark fa-2x" style= "color: #5C636A"></i>
+      <% end %>
+    </div>
+
+   <div class="col" style="display: flex; align-items: center; justify-content: center">
+        <%= link_to offers_path(category: "") do %>
+    <i class="fa-solid fa-reply-all fa-2x" style= "color: #5C636A"></i>
+    <% end %>
+    </div>
+  </div>
+
+
+  <div class="row row-cols-1 row-cols-md-3 g-4" >
     <% @offers.each do |offer| %>
       <div class="col">
         <div class="card" style="width: 23rem;">
@@ -20,5 +64,3 @@
     <% end %>
   </div>
 </div>
-
-
