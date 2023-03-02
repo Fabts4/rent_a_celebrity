@@ -4,11 +4,19 @@ class OffersController < ApplicationController
   end
 
   def show
+    @users = User.all
+    # @markers = @users.geocoded.map do |user|
+    #   {
+    #     lat: user.latitude,
+    #     lng: user.longitude,
+    #     info_window_html: render_to_string(partial: "info_window", locals: { user: user })
+    #   }
+    # end
     @offer = Offer.find(params[:id])
     @booking = Booking.new
     @review = Review.new
     @reviews = @offer.reviews
-    @markers = [{ lat: @offer.user.latitude, lng: @offer.user.longitude }]
+    @markers = [{ lat: @offer.user.latitude, lng: @offer.user.longitude,  info_window_html: render_to_string(partial: "info_window", locals: { user: @offer.user }) }, { lat: current_user.latitude, lng: current_user.longitude, info_window_html: render_to_string(partial: "info_window", locals: { user: current_user }) }]
   end
 
   def create
@@ -39,12 +47,7 @@ class OffersController < ApplicationController
     # end
 
     @users = User.all
-    @markers = @users.geocoded.map do |user|
-      {
-        lat: user.latitude,
-        lng: user.longitude
-      }
-    end
+
   end
 
   def edit
