@@ -10,6 +10,13 @@
   <div class = "flexbox-description d-flex justify-content-between">
       <div class = "description-offer">
           <h1 class = "mt-5"> <%= @offer.celebrity_name %> </h1>
+          <% ratings = [] %>
+          <% @offer.reviews.each {|review| ratings << review.rating} %>
+          <% if ratings.empty? %>
+            <p><i class="fa-solid fa-star" style="color: #FEDE01"></i> - </p>
+          <% else %>
+            <p><i class="fa-solid fa-star" style="color: #FEDE01"></i><%= ratings.sum.fdiv(ratings.size).round(1) %></p>
+          <% end %>
           <p> <%= @offer.short_desc %></p>
           <% if @offer.category == "Cinema"  %>
               <p class="text-secondary"><i class="fa-solid fa-film"></i> <%= @offer.category%> </p>
