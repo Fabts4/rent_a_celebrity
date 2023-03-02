@@ -11,47 +11,59 @@
 
 <div class = "container offset-md-1 ">
 
-  <div class="row">
+  <div id = "icons" class="row">
 
-    <div class="col" style="display: flex; align-items: center; justify-content: center">
+    <div class="col" style="display: flex; align-items: center; justify-content: center; flex-direction: column;">
       <%= link_to offers_path(category: "Cinema") do %>
-      <i class="fa-solid fa-film fa-2x" style= "color: #5C636A"></i>
+        <i class="fa-solid fa-film fa-2x icons" style="<%= 'color: #000000' if params[:category] == 'Cinema'%>"></i>
       <% end %>
+      <p class="<%= 'fw-bold' if params[:category] == "Cinema" %>">Cinema</p>
     </div>
 
-    <div class="col" style="display: flex; align-items: center; justify-content: center">
+
+      <div class="col" style="display: flex; align-items: center; justify-content: center; flex-direction: column;">
       <%= link_to offers_path(category: "Sport") do %>
-      <i class="fa-solid fa-baseball-bat-ball fa-2x" style= "color: #5C636A"></i>
+      <i class="fa-solid fa-baseball-bat-ball fa-2x icons" style="<%= 'color: #000000' if params[:category] == 'Sport'%>"></i>
       <% end %>
+      <p class="<%= 'fw-bold' if params[:category] == "Sport" %>">Sport</p>
     </div>
 
-    <div class="col" style="display: flex; align-items: center; justify-content: center">
+      <div class="col" style="display: flex; align-items: center; justify-content: center; flex-direction: column;">
       <%= link_to offers_path(category: "Musique") do %>
-      <i class="fa-solid fa-music fa-2x" style= "color: #5C636A"></i>
+      <i class="fa-solid fa-music fa-2x icons" style="<%= 'color: #000000' if params[:category] == 'Musique'%>"></i>
       <% end %>
+      <p class="<%= 'fw-bold' if params[:category] == "Musique" %>">Musique</p>
     </div>
 
-    <div class="col" style="display: flex; align-items: center; justify-content: center">
+      <div class="col" style="display: flex; align-items: center; justify-content: center; flex-direction: column;">
         <%= link_to offers_path(category: "Politique") do %>
-      <i class="fa-solid fa-landmark fa-2x" style= "color: #5C636A"></i>
+      <i class="fa-solid fa-landmark fa-2x icons" style="<%= 'color: #000000' if params[:category] == 'Politique'%>"></i>
       <% end %>
+      <p class="<%= 'fw-bold' if params[:category] == "Politique" %>">Politique</p>
     </div>
 
-   <div class="col" style="display: flex; align-items: center; justify-content: center">
+   <div class="col" style="display: flex; align-items: center; justify-content: center; flex-direction: column;">
         <%= link_to offers_path(category: "") do %>
-    <i class="fa-solid fa-reply-all fa-2x" style= "color: #5C636A"></i>
+    <i class="fa-solid fa-reply-all fa-2x icons" style="<%= 'color: #000000' if params[:category] == ''%>"></i>
     <% end %>
+    <p class="<%= 'fw-bold' if params[:category] == "" %>">Tous</p>
     </div>
   </div>
 
 
   <div class="row row-cols-1 row-cols-md-3 g-4" >
-    <% @offers.each do |offer| %>
-      <div class="col">
-        <div class="card" style="width: 23rem;">
-          <div class="card-info">
-            <div class="d-flex justify-content-center mb-3">
-              <%= cl_image_tag offer.photo.key, width: 200, height: 200, gravity: :face, crop: :thumb, class:"rounded" %>
+      <% @offers.each do |offer| %>
+        <%= link_to offer_path(offer), class: "card-index" do %>
+        <div class="col">
+          <div class="card" style="width: 23rem;">
+            <div class="card-info">
+              <div class="d-flex justify-content-center mb-3">
+                <%= cl_image_tag offer.photo.key, width: 200, height: 200, gravity: :face, crop: :thumb, class:"rounded" %>
+              </div>
+              <p class="celebrity mb-1"> <%= offer.celebrity_name %> </p>
+              <p class="text-secondary"><i class="fa-solid fa-user-tie"></i> <%= offer.category%> </p>
+              <p><%= offer.short_desc %></p>
+              <p class="price"> <%= offer.price %> €</p>
             </div>
             <% ratings = [] %>
             <% offer.reviews.each {|review| ratings << review.rating} %>
@@ -72,10 +84,9 @@
             <% end %>
             <p><%= offer.short_desc %></p>
             <p class="price"> <%= offer.price %> €</p>
-            <%= link_to "Voir", offer_path(offer), class: "link card-footer" %>
           </div>
         </div>
-      </div>
+      <% end %>
     <% end %>
   </div>
 </div>

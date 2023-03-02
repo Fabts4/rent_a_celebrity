@@ -1,2 +1,14 @@
 // Import page-specific CSS files here.
 @import "home";
+
+#icons .col:hover p {
+  font-weight: bold;
+}
+
+.icons {
+  color: #5C636A;
+}
+
+.icons:hover {
+  color: #000000;
+}

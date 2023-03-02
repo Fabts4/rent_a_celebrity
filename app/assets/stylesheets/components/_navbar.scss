@@ -2,12 +2,12 @@
 
   justify-content: space-between;
   background: white;
-  border-bottom: solid darkgrey 2px;
   background-color: white;
   position: sticky;
   top: 0;
   width: 100%;
   z-index: 2;
+  background-color: rgb(141, 137, 183);
 }
 
 .navbar-lewagon .navbar-collapse {
@@ -25,3 +25,4 @@
   border-radius: 50%;
   object-fit: cover;
 }
+

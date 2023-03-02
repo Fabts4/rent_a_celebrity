@@ -14,7 +14,7 @@
 
 // .card img {
 
-  
+
 // }
 
 .row {
@@ -24,7 +24,7 @@
   margin: 10px;
   border-radius: 5px 5px 5px 5px;
   height: 500px;
- 
+
 }
 
 .card-info {
@@ -34,7 +34,7 @@
 }
 
 .card:hover {
-  box-shadow: 10px 10px 58px -35px rgba(172,156,156,0.75);
+  box-shadow: #FFF 0 -1px 4px, rgb(102, 94, 187) 0 -2px 10px, rgb(191, 172, 226) 0 -10px 20px, 5px 5px 23px -3px rgba(255,251,246,0);
   transition: 350ms;
   a {
     background-color: #696969;
@@ -49,4 +49,13 @@
   background-color: #A9A9A9;
   color: white;
   padding: 16px;
+}
+
+.card-index {
+  text-decoration: none;
+  color: #6C767D;
+}
+
+.card-index:hover {
+  color: #696969;
 }
