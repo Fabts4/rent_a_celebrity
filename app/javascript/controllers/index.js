@@ -15,3 +15,5 @@ application.register("map", MapController)
 
 import StarRatingController from "./star_rating_controller"
 application.register("star-rating", StarRatingController)
+
+
