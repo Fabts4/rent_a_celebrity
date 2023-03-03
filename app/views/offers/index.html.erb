@@ -50,39 +50,41 @@
     </div>
   </div>
 
+  <div class="align-items-center">
 
-  <div class="row row-cols-1 row-cols-md-3 g-4" >
-    <% @offers.each do |offer| %>
-      <%= link_to offer_path(offer), class: "card-index" do %>
-        <div class="col">
-          <div class="card" style="width: 23rem;">
-            <div class="card-info">
-              <div class="d-flex justify-content-center mb-3">
-                <%= cl_image_tag offer.photo.key, width: 200, height: 200, gravity: :face, crop: :thumb, class:"rounded" %>
+    <div class="row row-cols-1 row-cols-md-3 g-4" >
+      <% @offers.each do |offer| %>
+        <%= link_to offer_path(offer), class: "card-index" do %>
+          <div class="col-1">
+            <div class="card" style="width: 23rem;">
+              <div class="card-info">
+                <div class="d-flex justify-content-center mb-3">
+                  <%= cl_image_tag offer.photo.key, width: 200, height: 200, gravity: :face, crop: :thumb, class:"rounded" %>
+                </div>
+              <% ratings = [] %>
+              <% offer.reviews.each {|review| ratings << review.rating} %>
+              <% if ratings.empty? %>
+              <p><i class="fa-solid fa-star" style="color: #FEDE01"></i> - </p>
+              <% else %>
+              <p><i class="fa-solid fa-star" style="color: #FEDE01"></i><%= ratings.sum.fdiv(ratings.size).round(1) %></p>
+              <% end %>
+              <p class="celebrity mb-1"> <%= offer.celebrity_name %> </p>
+              <% if offer.category == "Cinema"  %>
+                <p class="text-secondary"><i class="fa-solid fa-film"></i> <%= offer.category%> </p>
+              <% elsif offer.category == "Sport"  %>
+                <p class="text-secondary"><i class="fa-solid fa-baseball-bat-ball"></i> <%= offer.category%> </p>
+              <% elsif offer.category == "Musique"  %>
+                <p class="text-secondary"><i class="fa-solid fa-music"></i> <%= offer.category%> </p>
+              <% elsif offer.category == "Politique"  %>
+                <p class="text-secondary"><i class="fa-solid fa-landmark"></i> <%= offer.category%> </p>
+              <% end %>
+              <p><%= offer.short_desc %></p>
+              <p class="price"> <%= offer.price %> €</p>
               </div>
-            <% ratings = [] %>
-            <% offer.reviews.each {|review| ratings << review.rating} %>
-            <% if ratings.empty? %>
-            <p><i class="fa-solid fa-star" style="color: #FEDE01"></i> - </p>
-            <% else %>
-            <p><i class="fa-solid fa-star" style="color: #FEDE01"></i><%= ratings.sum.fdiv(ratings.size).round(1) %></p>
-            <% end %>
-            <p class="celebrity mb-1"> <%= offer.celebrity_name %> </p>
-            <% if offer.category == "Cinema"  %>
-              <p class="text-secondary"><i class="fa-solid fa-film"></i> <%= offer.category%> </p>
-            <% elsif offer.category == "Sport"  %>
-              <p class="text-secondary"><i class="fa-solid fa-baseball-bat-ball"></i> <%= offer.category%> </p>
-            <% elsif offer.category == "Musique"  %>
-              <p class="text-secondary"><i class="fa-solid fa-music"></i> <%= offer.category%> </p>
-            <% elsif offer.category == "Politique"  %>
-              <p class="text-secondary"><i class="fa-solid fa-landmark"></i> <%= offer.category%> </p>
-            <% end %>
-            <p><%= offer.short_desc %></p>
-            <p class="price"> <%= offer.price %> €</p>
             </div>
           </div>
-        </div>
+        <% end %>
       <% end %>
-    <% end %>
+    </div>
   </div>
 </div>

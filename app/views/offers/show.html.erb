@@ -51,31 +51,19 @@
       </div>
     </div>
 
-</div>
-
-<div class = "container">
-
-        <div class="flexbox-description d-flex justify-content-center">
-      <div class="hello card" style="width: 30rem;">
+    <div class="flexbox-description d-flex justify-content-center" data-controller="insert-review">
+      <div class="card" style="width: 30rem;">
         <h2>Commentaires:</h2>
-        <ul class="list-group list-group-flush">
+        <ul class="list-group list-group-flush" data-insert-review-target = reviews>
         <% @reviews.sort.reverse!.each do |review| %>
         <div>
-          <li class="list-group-item"><% review.rating.times do %>
-          <i class="fa-solid fa-star" style="color: #FEDE01"></i>
-          <% end %> <p class="small">less than <%= ((Time.now - review.created_at)/60).to_i %> minutes ago</p>
-          <p><i class="fa-solid fa-quote-right"></i> <%= review.comment %></p>
-          </li>
+          <%= render 'reviews/review', review: review %>
         </div>
         <% end %>
         </ul>
         </div>
-          <div class="hello card align-self-start ms-5" style="width: 20rem;">
-            <%= simple_form_for [@offer, @review], namespace: 'review form' do |f| %>
-              <%= f.input :comment, label: 'Ajoute un commentaire' %>
-              <%= f.input :rating, collection: (1..5).to_a, label: "Donne une note", input_html: {data: {controller: "star-rating"}} %>
-              <%= f.submit :submit, class: "btn btn-success" %>
-            <% end %>
+          <div class="card align-self-start ms-5" style="width: 20rem;">
+          <%= render 'reviews/form', review: @review, offer: @offer  %>
           </div>
         </div>
       </div>
