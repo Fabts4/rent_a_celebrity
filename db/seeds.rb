@@ -12,7 +12,7 @@ watson_photo = URI.open("https://i.dailymail.co.uk/1s/2020/12/28/09/37325542-909
 snoop_photo = URI.open("https://i.pinimg.com/originals/b7/aa/19/b7aa19d8bdd692f69327fae36905f5fc.jpg")
 zlatan_photo = URI.open("https://www.calcioweb.eu/wp-content/uploads/2014/09/sosia-ibra.jpg")
 
-user = User.create!(email: "sosie@gmail.com", password: "123456", address: "Paris", first_name: "Youssef", last_name: "Aboulethar")
+user = User.create!(email: "sosie@gmail.com", password: "123456", address: "Aubergenville", first_name: "Youssef", last_name: "Aboulethar")
 user_sarko = User.create!(email: "sarko@gmail.com", password: "123456", address: "Paris", first_name: "Nicolas", last_name: "Sarkozy")
 user_polna = User.create!(email: "polna@gmail.com", password: "123456", address: "Grenoble", first_name: "Michel", last_name: "Polnareff")
 user_alide = User.create!(email: "alide@gmail.com", password: "123456", address: "Lille", first_name: "Johnny", last_name: "Halliday")
@@ -58,3 +58,18 @@ snoop.save!
 zlatan = Offer.new(celebrity_name: "Zlatan", price: 100, category: "Sport", short_desc: "Löksås ipsum regn har inom så bra för dimmhöljd häst söka rännil", user_id: user_zlatan.id, content: "Kan enligt annat där på av tre ingalunda omfångsrik regn. Vemod från vi har hela erfarenheter år lax")
 zlatan.photo.attach(io: zlatan_photo, filename: "sarko.jpg", content_type: "image/jpg")
 zlatan.save!
+
+review_1 = Review.create!(comment: "", rating: 3, offer_id: polna.id)
+review_2 = Review.create!(comment: "", rating: 4, offer_id: alide.id)
+review_3 = Review.create!(comment: "", rating: 1, offer_id: enricco.id)
+review_4 = Review.create!(comment: "", rating: 4, offer_id: jb.id)
+review_5 = Review.create!(comment: "", rating: 4, offer_id: brad.id)
+review_6 = Review.create!(comment: "", rating: 5, offer_id: watson.id)
+review_7 = Review.create!(comment: "", rating: 3, offer_id: snoop.id)
+review_8 = Review.create!(comment: "", rating: 5, offer_id: zlatan.id)
+review_10 = Review.create!(comment: "Depuis son passage, je ne retrouve plus ma Playstation", rating: 1, offer_id: sarko.id)
+review_11 = Review.create!(comment: "Il a sorti le grand jeu devant mes potes, je recommande vivement pour un diner le mercredi", rating: 4, offer_id: sarko.id)
+review_12 = Review.create!(comment: "Un super moment de nostalgie, chapeau l'artiste!", rating: 5, offer_id: sarko.id)
+
+book_1 = Booking.create!(event_date: Date.today - 30, comment: "Bonjour M.l'Escroc, seriez-vous disponible pour une performance à Montéllimard, pour un after-work?", user_id: user_jb.id, offer_id: sarko.id, status: 'Rejected')
+book_2 = Booking.create!(event_date: Date.today + 6, comment: "Salut Nico, j'aurai besoin de toi pour animer une conf' du Medef sur Paris, ça te tentes?", user_id: user_zlatan.id, offer_id: sarko.id, status: 'Accepted')
