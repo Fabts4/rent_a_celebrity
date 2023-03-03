@@ -1,6 +1,6 @@
 <%= render 'shared/banner' %>
 
-  <%= form_with url: offers_path, method: :get, class: "d-flex offset-md-4 col-4" do %>
+  <%= form_with url: offers_path, method: :get, class: "d-flex offset-md-4 col-4 mb-5" do %>
     <%= text_field_tag :query,
       params[:query],
       class: "form-control",
@@ -9,9 +9,9 @@
     <%= submit_tag "Search", class: "btn btn-secondary" %>
   <% end %>
 
-<div class = "container offset-md-1 ">
+<div class = "container">
 
-  <div id = "icons" class="row">
+  <div id = "icons" class="row mb-3">
 
     <div class="col" style="display: flex; align-items: center; justify-content: center; flex-direction: column;">
       <%= link_to offers_path(category: "Cinema") do %>

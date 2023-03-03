@@ -26,7 +26,6 @@
               <%= image_tag "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSrnv4-74fOG5XFFrhzG-ehFHZFdGzC4pj5CQ&usqp=CAU", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
               <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
                 <%= link_to "Mon profil", :edit_user_registration, class: "dropdown-item" %>
-                <%= link_to "My features", "#", class: "dropdown-item" %>
                 <%= link_to "Se déconnecter", destroy_user_session_path, class: "dropdown-item", data: {turbo_method: :delete} %>
               </div>
             </li>
