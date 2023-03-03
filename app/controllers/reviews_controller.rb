@@ -13,10 +13,15 @@ class ReviewsController < ApplicationController
     @review.offer = @offer
     @booking = Booking.new
     @reviews = @offer.reviews
-    if @review.save
-      redirect_to offer_path(@offer)
-    else
-      render 'offers/show', status: :unprocessable_entity
+
+    respond_to do |format|
+      if @review.save
+        format.html { redirect_to offer_path(@offer) }
+        format.json
+      else
+        format.html { render 'offers/show', status: :unprocessable_entity }
+        format.json
+      end
     end
   end
 

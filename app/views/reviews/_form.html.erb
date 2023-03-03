@@ -1,0 +1,5 @@
+<%= simple_form_for [offer, review], namespace: 'review form', data: {insert_review_target: "form", action: "submit->insert-review#send"}  do |f| %>
+  <%= f.input :comment, label: 'Ajoute un commentaire' %>
+  <%= f.input :rating, collection: (1..5).to_a, label: "Donne une note", input_html: {data: {controller: "star-rating"}} %>
+  <%= f.submit :submit, class: "btn btn-success" %>
+<% end %>

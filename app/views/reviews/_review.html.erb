@@ -1,0 +1,6 @@
+<li class="list-group-item"><% review.rating.times do %>
+    <i class="fa-solid fa-star" style="color: #FEDE01"></i>
+  <% end %>
+  <p class="small">less than <%= ((Time.now - review.created_at)/60).to_i %> minutes ago</p>
+  <p><i class="fa-solid fa-quote-right"></i> <%= review.comment %></p>
+</li>
