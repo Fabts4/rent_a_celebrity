@@ -91,6 +91,12 @@ review_8 = Review.create!(comment: "", rating: 5, offer_id: zlatan.id)
 review_10 = Review.create!(comment: "Depuis son passage, je ne retrouve plus ma Playstation", rating: 1, offer_id: sarko.id)
 review_11 = Review.create!(comment: "Il a sorti le grand jeu devant mes potes, je recommande vivement pour un diner le mercredi", rating: 4, offer_id: sarko.id)
 review_12 = Review.create!(comment: "Un super moment de nostalgie, chapeau l'artiste!", rating: 5, offer_id: sarko.id)
+Review.create!(comment: "", rating: 4, offer_id: guadeloupe.id)
+Review.create!(comment: "", rating: 3, offer_id: barthez.id)
+Review.create!(comment: "", rating: 4, offer_id: lasalle.id)
+
+
 
 book_1 = Booking.create!(event_date: Date.today - 30, comment: "Bonjour M.l'Escroc, seriez-vous disponible pour une performance à Montéllimard, pour un after-work?", user_id: user_jb.id, offer_id: sarko.id, status: 'Rejected')
 book_2 = Booking.create!(event_date: Date.today + 6, comment: "Salut Nico, j'aurai besoin de toi pour animer une conf' du Medef sur Paris, ça te tentes?", user_id: user_zlatan.id, offer_id: sarko.id, status: 'Accepted')
+book_3 = Booking.create!(event_date: Date.today - 128, comment: "Ouaf Ouaf Ouaf Ouaf !!!", user_id: user.id, offer_id: snoop.id, status: 'Accepted')
